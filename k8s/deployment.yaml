@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rift-api
+  labels:
+    app: rift-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rift-api
+  template:
+    metadata:
+      labels:
+        app: rift-api
+    spec:
+      containers:
+      - name: api
+        image: rift-api:latest
+        ports:
+        - containerPort: 8000
+        livenessProbe:
+          httpGet:
+            path: /health/liveness
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health/readiness
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 10

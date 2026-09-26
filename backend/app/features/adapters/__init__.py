@@ -1,0 +1,1 @@
+# Adapters Feature Module
