@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from app.config.settings import settings
 from app.core.exceptions import setup_exception_handlers
 from app.core.logging import logger
+from app.features.observation.router import router as observation_router
 
 def create_app() -> FastAPI:
     app = FastAPI(
@@ -11,6 +12,8 @@ def create_app() -> FastAPI:
     )
     
     setup_exception_handlers(app)
+    
+    app.include_router(observation_router, prefix=settings.API_V1_STR)
     
     @app.on_event("startup")
     async def startup_event():
