@@ -1,6 +1,45 @@
 @import "tailwindcss";
 
+@theme {
+  --color-rift-bg: #0B1120;
+  --color-rift-surface: #0F172A;
+  --color-rift-elevated: #1E293B;
+  --color-rift-accent: #22D3EE;
+  --color-rift-success: #34D399;
+  --color-rift-warning: #FBBF24;
+  --color-rift-danger: #FB7185;
+  --color-rift-text-primary: #F8FAFC;
+  --color-rift-text-secondary: #94A3B8;
+  --color-rift-border: #334155;
+}
+
 body {
-  background-color: #0f172a;
-  color: #f8fafc;
+  background-color: var(--color-rift-bg);
+  color: var(--color-rift-text-primary);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-rift-bg); 
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-rift-elevated); 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-rift-border); 
+}
+
+/* Utilities */
+@layer utilities {
+  .glass-card {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-rift-border);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
 }
