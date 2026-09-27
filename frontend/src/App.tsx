@@ -3,12 +3,12 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, MeshDistortMaterial, Environment, Sparkles } from '@react-three/drei';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Shield, Activity, Lock, Database, ArrowRight, Zap, Target, 
-  Search, ShieldAlert, Cpu, Settings, ChevronDown, CheckCircle2, 
-  AlertTriangle, ShieldCheck, Clock, FileCode, Play, StopCircle, 
-  Server, Network, Hexagon, Terminal, Filter, X 
+  Shield, Activity, Database, ArrowRight, Zap, Target, 
+  Search, ShieldAlert, Cpu, Settings, CheckCircle2, 
+  AlertTriangle, ShieldCheck, FileCode, Play, 
+  Server, Network, Hexagon, X 
 } from 'lucide-react';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { AreaChart, Area, ResponsiveContainer } from 'recharts';
 import * as THREE from 'three';
 
 // ==========================================
@@ -87,7 +87,7 @@ function LandingPage({ onLaunch }: { onLaunch: () => void }) {
     initial: { opacity: 0, y: 50 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true, margin: "-100px" },
-    transition: { duration: 0.6, ease: "easeOut" }
+    transition: { duration: 0.6, ease: "easeOut" as const }
   };
 
   return (
