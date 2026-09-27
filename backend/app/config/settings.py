@@ -6,6 +6,7 @@ class Settings(BaseSettings):
     API_V1_STR: str = "/api/v1"
     ENVIRONMENT: str = "development"
     DEBUG: bool = True
+    KAFKA_BOOTSTRAP_SERVERS: str = "localhost:9092"
 
     model_config = SettingsConfigDict(env_file=".env", case_sensitive=True)
 

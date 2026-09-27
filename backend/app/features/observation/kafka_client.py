@@ -1,9 +1,10 @@
 from confluent_kafka import Producer, Consumer
 import json
 from app.core.logging import logger
+from app.config.settings import settings
 
 class KafkaEventBus:
-    def __init__(self, bootstrap_servers: str = "localhost:9092"):
+    def __init__(self, bootstrap_servers: str = settings.KAFKA_BOOTSTRAP_SERVERS):
         self.producer = Producer({'bootstrap.servers': bootstrap_servers})
         self.consumer = Consumer({
             'bootstrap.servers': bootstrap_servers,
